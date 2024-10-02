@@ -12,11 +12,12 @@
 {% endif %}
 {% endfor %}
 
+<!-- NavBar -->
 <div class="navbar-fixed">
   <nav class="EstudiantesRSEF" role="navigation">
       <div class="nav-wrapper container">
           <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
-          <a id="logo-container" href="/index.html"><strong>Grupo de Estudiantes RSEF</strong></a>
+          <a id="logo-container" href="/PLANCKS"><strong>PLANCKS Barcelona 2025</strong></a>
 
           <ul class="right hide-on-med-and-down">
             {% for item in include.nav %}
@@ -39,7 +40,7 @@
           </ul>
 
           <ul id="nav-mobile" class="side-nav">
-              <li class="logo"><a id="mobile-logo-container" href="/"><object id="front-page-logo" type="image/png" style="width:100%; height:100%;" data="/img/logo_centered.jpg">Your browser does not support PNG</object></a></li>
+              <li class="logo"><a id="mobile-logo-container" href="/"><object id="front-page-logo" type="image/png" style="width:100%; height:100%;" data="/PLANCKS25/img/Logo.jpg">Your browser does not support PNG</object></a></li>
               {% for item in include.nav %}
                   {% if item.subitems %}
                   <li class="no-padding">
