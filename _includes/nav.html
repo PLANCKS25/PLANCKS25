@@ -42,17 +42,21 @@
 <div class="navbar-fixed">
   <nav class="EstudiantesRSEF" role="navigation">
       <div class="nav-wrapper container">
-          <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
-          <a id="logo-container" href="/PLANCKS25"><strong>PLANCKS Barcelona 2025</strong></a>
+          <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-large-only">
+              <i class="material-icons">menu</i>
+          </a>
+          <a id="logo-container" href="/PLANCKS25">
+              <strong>PLANCKS Barcelona 2025</strong>
+          </a>
 
           <ul class="right hide-on-med-and-down">
             {% for item in site.data.navbar %}
-            {% if item.subitems %}
             <li>
-              <a class="dropdown-button" href="{{ item.url }}" data-activates="dropdown-{{ item.slug }}">{{ item.text }}<i class="material-icons right">arrow_drop_down</i></a>
-            </li>
-            {% else %}
-              <li>
+                {% if item.subitems %}
+                  <a class="dropdown-button" href="{{ item.url }}" data-activates="dropdown-{{ item.slug }}">
+                      {{ item.text }}<i class="material-icons right">arrow_drop_down</i>
+                  </a>
+                {% else %}
                   <a href="{{ item.url }}">
                       {% if item.url == navurl %}
                           <b>{{ item.text }}</b>
@@ -60,9 +64,9 @@
                           {{ item.text }}
                       {% endif %}
                   </a>
-              </li>
-              {% endif %}
-          {% endfor %}
+                {% endif %}
+            </li>
+            {% endfor %}
           </ul>
 
           <ul id="nav-mobile" class="side-nav">
