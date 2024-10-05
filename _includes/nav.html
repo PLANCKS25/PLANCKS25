@@ -1,6 +1,6 @@
 <!-- Dropdown -->
 {% assign navurl = page.url | remove: 'index.html' %}
-{% for item in include.nav %}
+{% for item in site.data.dropdown %}
   {% if item.subitems %}
     <div class="dropdown">
       <!-- Icon acting as the button -->
