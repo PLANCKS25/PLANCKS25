@@ -20,7 +20,8 @@
     <div class="dropdown">
       <!-- Button to trigger dropdown -->
       <button class="dropdown-button">{{ item.text }}</button>
-
+        <i class="material-icons">menu</i>
+      </button>
       <!-- Dropdown menu -->
       <ul id="dropdown-{{ item.slug }}" class="dropdown-content">
         {% if item.url != nil %}
