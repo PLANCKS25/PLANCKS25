@@ -18,7 +18,7 @@
 {% for item in include.nav %}
   {% if item.subitems %}
     <div class="dropdown">
-      <!-- Button that triggers the dropdown -->
+      <!-- Button to trigger dropdown -->
       <button class="dropdown-button">{{ item.text }}</button>
 
       <!-- Dropdown menu -->
@@ -33,6 +33,16 @@
     </div>
   {% endif %}
 {% endfor %}
+
+<script>
+  document.querySelectorAll('.dropdown-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const dropdownContent = this.nextElementSibling;
+      dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+    });
+  });
+</script>
+
 
 <!-- NavBar -->
 <div class="navbar-fixed">
