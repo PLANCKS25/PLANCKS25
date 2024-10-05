@@ -1,11 +1,10 @@
-dropdown:
-  - text: "Main Menu"
-    slug: "main-menu"
-    subitems:
-      - text: "<strong>PLANCKS</strong>"
-        url: "https://iaps.info/events/plancks/"
-      - text: "2024"
-        url: "https://plancks.uk/dublin24/"
-      - text: "2023"
-        url: "https://plancks23.ai-sf.it/"
+- text: "Main Menu"
+  slug: "main-menu"
+  subitems:
+    - text: "<strong>PLANCKS</strong>"
+      url: "https://iaps.info/events/plancks/"
+    - text: "2024"
+      url: "https://plancks.uk/dublin24/"
+    - text: "2023"
+      url: "https://plancks23.ai-sf.it/"
 
