@@ -1,8 +1,5 @@
 <!-- Dropdown -->
-<!-- Dropdown -->
 {% assign navurl = page.url | remove: 'index.html' %}
-<!-- Test if data is accessible -->
-{{ site.data.dropdown | inspect }}
 <div class="dropdown-container">
   {% for item in site.data.dropdown %}
     {% if item.subitems %}
