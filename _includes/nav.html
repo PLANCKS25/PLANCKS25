@@ -20,6 +20,15 @@
   {% endif %}
 {% endfor %}
 
+<style>
+    .dropdown-content {
+      display: none; /* Hide dropdown by default */
+      position: absolute; /* Positioning */
+      background-color: white; /* Background color */
+      z-index: 1; /* Stack order */
+    }
+ </style>
+
 <script>
   document.querySelectorAll('.dropdown-button').forEach(button => {
     button.addEventListener('click', function() {
