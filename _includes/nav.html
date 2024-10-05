@@ -1,31 +1,106 @@
 <!-- Dropdown -->
+<!-- Dropdown -->
 {% assign navurl = page.url | remove: 'index.html' %}
 <!-- Test if data is accessible -->
 {{ site.data.dropdown | inspect }}
-{% for item in site.data.dropdown %}
-  {% if item.subitems %}
-    <div class="dropdown">
-      <!-- Icon acting as the button -->
-      <button class="dropdown-button">
-        <i class="material-icons">menu</i>
-      </button>
-      <!-- Dropdown menu -->
-      <ul id="dropdown-{{ item.slug }}" class="dropdown-content">
-        {% for subitem in item.subitems %}
-          <li><a href="{{ subitem.url }}">{{ subitem.text }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-{% endfor %}
+<div class="dropdown-container">
+  {% for item in site.data.dropdown %}
+    {% if item.subitems %}
+      <div class="dropdown">
+        <!-- Icon acting as the button -->
+        <button class="dropdown-button" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+          <i class="material-icons">menu</i>
+        </button>
+        <!-- Dropdown menu -->
+        <ul id="dropdown-{{ item.slug }}" class="dropdown-content" hidden>
+          {% for subitem in item.subitems %}
+            <li><a href="{{ subitem.url }}">{{ subitem.text }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
 
+<!-- CSS for styling -->
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Adjust as needed */
+  }
+
+  .dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: white; /* Change as needed */
+    min-width: 160px; /* Adjust as needed */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content li {
+    list-style: none;
+  }
+
+  .dropdown-content li a {
+    display: block;
+    padding: 8px 16px; /* Adjust padding as needed */
+    text-decoration: none;
+    color: black; /* Change as needed */
+  }
+
+  .dropdown-content li a:hover {
+    background-color: #f1f1f1; /* Change as needed */
+  }
+
+  /* Show dropdown when button is clicked */
+  .show {
+    display: block;
+  }
+</style>
+
+<!-- JavaScript for dropdown functionality -->
 <script>
-  document.querySelectorAll('.dropdown-button').forEach(button => {
-    button.addEventListener('click', function() {
-      const dropdownContent = this.nextElementSibling;
-      dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+  function toggleDropdown(button) {
+    const dropdownContent = button.nextElementSibling;
+    const isOpen = dropdownContent.classList.contains('show');
+
+    // Close all other dropdowns
+    const allDropdowns = document.querySelectorAll('.dropdown-content');
+    allDropdowns.forEach(drop => {
+      drop.classList.remove('show');
+      drop.setAttribute('hidden', true);
     });
-  });
+
+    // Toggle the clicked dropdown
+    if (!isOpen) {
+      dropdownContent.classList.add('show');
+      dropdownContent.removeAttribute('hidden');
+      button.setAttribute('aria-expanded', true);
+    } else {
+      dropdownContent.classList.remove('show');
+      dropdownContent.setAttribute('hidden', true);
+      button.setAttribute('aria-expanded', false);
+    }
+  }
+
+  // Close the dropdown if clicked outside
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-button')) {
+      const allDropdowns = document.querySelectorAll('.dropdown-content');
+      allDropdowns.forEach(drop => {
+        drop.classList.remove('show');
+        drop.setAttribute('hidden', true);
+      });
+    }
+  };
 </script>
 
 <!-- NavBar -->
