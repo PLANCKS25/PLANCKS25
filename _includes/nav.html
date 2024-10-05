@@ -1,3 +1,4 @@
+<!--
 {% assign navurl = page.url | remove: 'index.html' %}
 {% for item in include.nav %}
     {% if item.subitems %}
@@ -10,6 +11,27 @@
       {% endfor %}
     </ul>
 {% endif %}
+{% endfor %}
+-->
+
+{% assign navurl = page.url | remove: 'index.html' %}
+{% for item in include.nav %}
+  {% if item.subitems %}
+    <div class="dropdown">
+      <!-- Button that triggers the dropdown -->
+      <button class="dropdown-button">{{ item.text }}</button>
+
+      <!-- Dropdown menu -->
+      <ul id="dropdown-{{ item.slug }}" class="dropdown-content">
+        {% if item.url != nil %}
+          <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+        {% endif %}
+        {% for subitem in item.subitems %}
+          <li><a href="{{ subitem.url }}" {% if subitem.blank != nil %} target="_blank" {% endif %}>{{ subitem.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 {% endfor %}
 
 <!-- NavBar -->
