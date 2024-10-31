@@ -1,0 +1,48 @@
+.carousel-container {
+    width: 70%; /* Tamaño más compacto */
+    margin: 0 auto;
+    position: relative;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d; /* Para habilitar el 3D */
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    width: 300px; /* Tamaño de las imágenes */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra detrás de las imágenes */
+    position: absolute;
+    opacity: 0.5;
+}
+
+.carousel-item.active {
+    transform: translateX(0) scale(1);
+    z-index: 3;
+    opacity: 1;
+}
+
+.carousel-item:nth-child(2) {
+    transform: translateX(150px) scale(0.8) rotateY(-20deg);
+    z-index: 2;
+}
+
+.carousel-item:nth-child(3) {
+    transform: translateX(-150px) scale(0.8) rotateY(20deg);
+    z-index: 2;
+}
+
+.carousel-item:nth-child(4) {
+    transform: translateX(300px) scale(0.6) rotateY(-40deg);
+    z-index: 1;
+}
+
+.carousel-item:nth-child(1) {
+    transform: translateX(-300px) scale(0.6) rotateY(40deg);
+    z-index: 1;
+}
