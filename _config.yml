@@ -11,10 +11,6 @@ markdown: kramdown
 future: true
 permalink: /blog/:year/:month/:day/:title/
 
-#facebook
-fb_admins:
-fb_appid: 357177688182119
-
 #Collections
 collections:
   events:
@@ -24,6 +20,6 @@ collections:
     output: true
     permalink: /:categories/:title/
 
-gems:
+plugins:
  - jekyll-redirect-from
  - jekyll-sitemap
