@@ -1,8 +1,8 @@
 # Site settings
-title: "Estudiantes RSEF"
-description: "Grupo de Estudiantes de la Real Sociedad Española de Física"
-banner: img/logos/gdee-rsef.png
-url: "http://estudiantes.rsef.es" # the base hostname & protocol for your site
+title: "PLANCKS25"
+description: "PLANCKS25"
+banner: img/Logo_PLANCKS.png
+url: "https://plancks25.github.io/PLANCKS25/" # the base hostname & protocol for your site
 destination: ../site/
 locale: "es"
 
