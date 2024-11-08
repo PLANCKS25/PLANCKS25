@@ -1,0 +1,98 @@
+{% assign navurl = page.url | remove: 'index.html' %}
+{% for item in include.nav %}
+    {% if item.subitems %}
+    <ul id="dropdown-{{ item.slug }}" class="dropdown-content dd-plancks" style="border: 2px solid #333072; background-color: #00a79d;">
+      {% if item.url != nil %}
+      <li style="height: 100px"><a href="{{ item.url }}">{{ item.text }}</a></li>
+      {% endif %}
+      {% for subitem in item.subitems %}
+      <li style="height: 100px" class="dd-plancks"><a href="{{ subitem.url }}" {% if subitem.blank != nil %} target="_blank" {% endif %}>{{ subitem.text }}</a></li>
+      {% endfor %}
+    </ul>
+{% endif %}
+{% endfor %}
+
+<div id="content-desktop">
+  <nav class="navbar-plancks" style="background-color: #352F71;" >
+    <div class="nav-wrapper container" style="display: flex; justify-content: space-between; align-items: flex-start">
+
+      <div style="display: flex; align-items: flex-start; position: relative; left: -152px;">               
+        <!-- Logo -->
+        <a id="logo-container" href="/PLANCKS25/" style="display: flex; justify-content: space-between; align-items: flex-start;"> 
+          <img src="/img/eventos/2025-PLANCKS/Logo.png" alt="Logo" style="height: 152px; border-radius: 60%; margin-top: 0;">
+        </a>
+              
+        <!-- Title -->
+        <a href="/PLANCKS25/" style="margin-left: 50px; color: white; font-size: 30px; font-weight: bold;">
+          PLANCKS Barcelona 2025
+        </a>
+      </div>
+
+      <!-- For Big Screens -->
+      <ul class="right hide-on-med-and-down">
+        {% for item in include.nav %}
+          {% if item.subitems %}
+            <li>
+              <a class="dropdown-button" href="{{ item.url }}" data-activates="dropdown-{{ item.slug }}" style = "display: flex; align-items: center; font-size: 1.2rem;">
+                {{ item.text }}  <i class="material-icons" style = "margin-left: 5px"> arrow_drop_down </i>
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a href="{{ item.url }}" style="font-size: 1.2 rem; font-weight: bold">
+                {% if item.url == navurl %}
+                  <b>{{ item.text }}</b>
+                {% else %}
+                  {{ item.text }}
+                {% endif %}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div id="content-mobile">
+  <nav class="navbar-plancks" style="background-color: #352F71;">
+    <div class="nav-wrapper container"style = "display: flex; align-items: center; font-size: 1.2rem;">
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>  
+      <a href="/PLANCKS25/" style="margin-left: 50px; color: white; font-size: 30px; font-weight: bold; line-height: 50px;">
+        PLANCKS 2025 
+        Barcelona
+      </a>
+      <!-- For Small Screens -->
+      <ul id="nav-mobile" class="side-nav" style = "background-color: #352F71; color: #352F71;">
+        <li class="logo">
+          <a id="logo-container" href="/PLANCKS25/" style="display: flex; justify-content: center; align-items: flex-start;"> 
+            <img src="/img/eventos/2025-PLANCKS/Logo.png" alt="Logo" style="height: 100px; border-radius: 60%; margin-top: 0;">
+          </a>
+        </li>        
+        <li style="margin-top: 50px; background-color: #352F71">
+          {% for item in include.nav %}
+            <ul class="collapsible collapsible-accordion" style="background-color: #352F71; width: 240px; ">              
+              {% if item.subitems %}
+                <li style = "width: 100%">
+                  <a class="collapsible-header" style = "font-size: 16px; color: white; margin: 0">{{ item.text }} <i class="material-icons"> arrow_drop_down </i></a>                                
+                  <div class="collapsible-body">
+                    <ul style="background-color: #00a79d; color: #00a79d">                  
+                      {% if item.url != nil %}
+                        <li style = "font-weight: bold;"><a href="{{ item.url }}" style = "color: white; font-size: 16px;">{{ item.text }}</a></li>
+                      {% endif %}                    
+                      {% for subitem in item.subitems %}
+                        <li><a href="{{ subitem.url }}" style = "color: white; font-size: 16px;">{{ subitem.text }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </li>  
+              {% else %}
+                <li style = "font-weight: bold; margin: 0; height: 80px" class = "collapsible-header"><a href="{{ item.url }}" style = "color: white; font-size: 16px; height: 100%; margin: 0; padding-left: 2rem; align-items: center;">{{ item.text }}</a></li>                  
+              {% endif %}   
+            </ul>
+          {% endfor %}  
+        </li>                
+      </ul>
+    </div>
+  </nav>
+</div>

@@ -20,20 +20,17 @@ common-js:
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.language | default: site.language | default: 'en' }}">
+<html lang="es">
 <!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
 {% include head.html %}
 
-<body>
-  {% include gtm_body.html %}
-
-  {% include nav.html %}
+<body style = "background-color: #F3D9FF">
+  {% include plancksnav.html nav=site.data.plancksnav %}
 
   {{ content }}
 
-  {% include footer.html %}
+  {% include plancksfooter.html %}
 
   {% include footer-scripts.html %}
-
 </body>
 </html>
