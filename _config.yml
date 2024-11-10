@@ -11,7 +11,7 @@
 
 # Name of website
 title: PLANCKS25
-title-img: "/assets/img/2025-PLANCKS/Logo.png"
+
 # Your name to show in the footer
 author: GdeE - RSEF
 
@@ -137,13 +137,13 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-page-col: "#FFFFFF"
+page-col: "#F3D9FF"
 text-col: "#404040"
 link-col: "#008AFF"
 hover-col: "#0085A1"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
+navbar-col: "#352F71"
+navbar-text-col: "#FFFFFF"
+navbar-border-col: "#00a79d"
 footer-col: "#352F71"
 footer-text-col: "#FFFFFF"
 footer-link-col: "#FFFFFF"
