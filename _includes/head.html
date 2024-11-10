@@ -163,7 +163,7 @@
 
   {% assign favicon_exists = site.static_files | where: "path", "/favicon.ico" | size %}
   {% if favicon_exists == 1 %}
-  <link rel="icon" href="/assets/img/2025-PLANCKS/Logo.png">
+  <link rel="icon" href="{{ '/assets/img/2025-PLANCKS/Logo.png' | relative_url }}">
   {% endif %}
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   {% if page.head-extra %}
